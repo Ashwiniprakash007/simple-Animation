@@ -1,0 +1,100 @@
+.container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+.large-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-color: #ff0033;
+    border-radius: 50%;
+    transition: background-color 0.5s ease;
+}
+
+.small-circles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.small-circle {
+    width: 20px;
+    height: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.small-circle:nth-child(1) {
+    top: 0;
+    left: 50%;
+}
+
+.small-circle:nth-child(2) {
+    top: 50%;
+    left: 100%;
+}
+
+.small-circle:nth-child(3) {
+    top: 100%;
+    left: 50%;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: transparent;
+    transition: color 0.5s ease;
+}
+
+.container:hover .small-circle {
+    opacity: 1;
+}
+
+.container:hover .small-circle:nth-child(1) {
+    animation: move1 1.5s ease-in-out forwards;
+}
+
+.container:hover .small-circle:nth-child(2) {
+    animation: move2 1.5s ease-in-out forwards;
+}
+
+.container:hover .small-circle:nth-child(3) {
+    animation: move3 1.5s ease-in-out forwards;
+}
+
+.container:hover .large-circle {
+    background-color: #ff6a00;
+}
+
+.container:hover .text {
+    color: #000;
+}
+
+@keyframes move1 {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(-50%, -200%); }
+}
+
+@keyframes move2 {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(150%, -50%); }
+}
+
+@keyframes move3 {
+    0% { transform: translate(-50%, -50%); }
+    100% { transform: translate(-50%, 150%); }
+}
